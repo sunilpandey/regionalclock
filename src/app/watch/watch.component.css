@@ -1,0 +1,26 @@
+.main-watch-container {
+    margin: 5px;
+    padding: 5px;
+    background-color: antiquewhite;
+    width: 200px;
+    height: 100px;
+}
+
+.action-container {
+    display: flex;
+    flex-flow: row-reverse
+}
+
+.edit-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.summary-container {
+    position: relative;
+}
+
+.summary-text-container {
+    text-align: left;
+}

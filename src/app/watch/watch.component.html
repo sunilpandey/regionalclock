@@ -1,0 +1,28 @@
+<div class="main-watch-container">
+  <div *ngIf="editingStarted">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="City" aria-label="City" [matAutocomplete]="auto" [formControl]="cityCtrl" [(ngModel)]="cityName">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let city of filteredCities | async" [value]="city.city_name">
+          <span>{{city.city_name}}</span> |
+          <small>Time Zone: {{city.time_zone}}</small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <div class="action-container">
+      <input type="button" value="Done" (click)="doneButtonAction()"/>
+      <input type="button" value="Cancel" (click)="cancelButtonAction()"/>
+    </div>
+  </div>
+  <div *ngIf="!editingStarted" class="summary-container">
+    <div class="summary-text-container">
+      <div>{{selectedCity && selectedCity.city_name || "Not Known" }}</div>
+      <div>{{selectedCity && selectedCity.time_zone || "Not Known"}}</div>
+      <div>{{currentTime}}</div>
+    </div>
+    <div class="edit-button-container">
+        <input type="button" value="Edit" (click)="editButtonAction()"/>
+        <input type="button" value="Remove" (click)="removeButtonAction()"/>
+    </div>
+  </div>
+</div>  
