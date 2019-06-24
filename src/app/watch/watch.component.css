@@ -17,10 +17,18 @@
     right: 0;
 }
 
+.edit-button-container .mat-button {
+    line-height: 1.2;
+    padding: 4px;
+    font-size: 12px;
+    width: 60px;
+    min-width: 60px;
+}
 .summary-container {
     position: relative;
 }
 
 .summary-text-container {
     text-align: left;
+    padding-top: 20px;
 }

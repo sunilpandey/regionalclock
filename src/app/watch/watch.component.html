@@ -10,8 +10,8 @@
       </mat-autocomplete>
     </mat-form-field>
     <div class="action-container">
-      <input type="button" value="Done" (click)="doneButtonAction()"/>
-      <input type="button" value="Cancel" (click)="cancelButtonAction()"/>
+      <button mat-button (click)="doneButtonAction()" color="primary">Done</button>
+      <button mat-button (click)="cancelButtonAction()">Cancel</button>
     </div>
   </div>
   <div *ngIf="!editingStarted" class="summary-container">
@@ -21,8 +21,8 @@
       <div>{{currentTime}}</div>
     </div>
     <div class="edit-button-container">
-        <input type="button" value="Edit" (click)="editButtonAction()"/>
-        <input type="button" value="Remove" (click)="removeButtonAction()"/>
+        <button mat-button (click)="editButtonAction()">Edit</button>
+        <button mat-button (click)="removeButtonAction()" color="accent">Remove</button>
     </div>
   </div>
 </div>  

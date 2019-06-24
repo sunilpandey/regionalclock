@@ -6,5 +6,5 @@
   <div *ngFor="let clock of allClocks" style="display: inline-flex">
     <app-watch [(cityName)] = "clock.name" (removeButtonClicked)="clock.removeButtonClicked()"></app-watch>
   </div>
-  <input type="button" value="Add" (click)="addButtonAction()" />
+  <button mat-button (click)="addButtonAction()" color="primary" mat-fab>Add</button>
 </div>

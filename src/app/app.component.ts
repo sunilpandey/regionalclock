@@ -38,6 +38,6 @@ export class AppComponent {
       removeButtonClicked: () =>{
         this.removeButtonClicked(id);
       }
-    }
+    });
   }
 }
