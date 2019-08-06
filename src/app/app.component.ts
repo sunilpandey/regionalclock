@@ -27,17 +27,27 @@ export class AppComponent {
   removeButtonClicked = (id) => {
     var filteredClock = this.allClocks.filter((clock) => clock.id === id);
     if(filteredClock.length) {
-      this.allClocks.splice(this.allClocks.indexOf(filteredClock[0]), 1);
+      filteredClock[0].removeButtonPressed = true;
+      setTimeout(() => {
+        this.allClocks.splice(this.allClocks.indexOf(filteredClock[0]), 1);
+      }, 501);
     }
   }
 
   addButtonAction = () => {
     var id = this.counter++;
-    this.allClocks.push({
+    let clock = {
       id,
+      addButtonPressed: true,
       removeButtonClicked: () =>{
         this.removeButtonClicked(id);
       }
-    });
+    };
+
+    this.allClocks.push(clock);
+    setTimeout(() => {
+      clock.addButtonPressed = false;
+    },501);
+
   }
 }

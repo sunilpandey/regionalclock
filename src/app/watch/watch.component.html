@@ -18,7 +18,7 @@
     <div class="summary-text-container">
       <div>{{selectedCity && selectedCity.city_name || "Not Known" }}</div>
       <div>{{selectedCity && selectedCity.time_zone || "Not Known"}}</div>
-      <div>{{currentTime}}</div>
+      <div>{{currentTime | async}}</div>
     </div>
     <div class="edit-button-container">
         <button mat-button (click)="editButtonAction()">Edit</button>

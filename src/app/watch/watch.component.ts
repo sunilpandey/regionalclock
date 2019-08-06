@@ -35,7 +35,7 @@ export class WatchComponent implements OnInit, OnDestroy{
   editingStarted: boolean;
   @Output() removeButtonClicked: EventEmitter<void> = new EventEmitter<void>();
   clockInterval: number;
-  currentTime: string;
+  currentTime: Observable<string>;
   constructor() {
     this.title = "Clock"    
     this.cities = [{
@@ -134,10 +134,9 @@ export class WatchComponent implements OnInit, OnDestroy{
       if(filteredcityname.length !== 0) {
         this.selectedCity = filteredcityname[0];
         clearInterval(this.clockInterval);
-        this.currentTime = moment(new Date()).tz(this.selectedCity.time_zone).format("hh: mm: ss")
-        this.clockInterval = window.setInterval(() => {
-          this.currentTime = moment(new Date()).tz(this.selectedCity.time_zone).format("hh: mm: ss")
-        }, 100);
+        this.currentTime = new Observable((observer) => {
+          this.clockInterval = window.setInterval(() => observer.next(moment(new Date()).tz(this.selectedCity.time_zone).format("hh: mm: ss")), 100)
+        });
         this.editingStarted = false;
       } else {
         this.editingStarted = true;
